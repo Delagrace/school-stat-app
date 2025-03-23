@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEQ4 Student Records Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0ff;
+            margin: 0;
+            padding: 0;
+        }
+		.container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+		
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #003366;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+		.header-left, .header-right {
+            font-size: 1.2em;
+        }
+		.main-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #cceeff;
+        }
+		.section {
+            width: 45%;
+            background-color: #66ccff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+		.section h1 {
+			font-size: 16px;
+            text-align: center;
+        }
+
+        .section h2 {
+            text-align: center;
+			font-size: 14px;
+        }
+		
+        .login-box {
+            background-color: #ffffff;
+            border: 2px solid #003366;
+            padding: 20px;
+            border-radius: 10px;
+			
+        }
+        .login-box h5 {
+            background-color: #003366;
+            color: #FFF;
+			text-align: center;
+            padding: 10px;
+            border-radius: 2px 2px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+		.login-box select{
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+			margin-bottom: 10px;	
+        }
+        .login-box label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .login-box button {
+			width: 100%;
+            background-color: #003366;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+			display: flex;
+			justify-content: center;
+        }
+        .footer {
+			display: flex;
+			justify-content: center;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<header>
+            <div class="header-left">CETIC D'ASSALA 1&2</div>
+            <div class="header-right">ELEQ Student Records Management</div>
+        </header>
+		<div class="main-content">
+			<div class="section" id="enter-grades">
+				<h1>Bienvenue dans la plateforme de remplissage des notes</h1>
+				<h2>ETABLISSEMENT : CETIC D'ASSALA 1&2</h2>
+				<h2>DEPARTMENT : ELECTRICITE D’EQUIPEMENTS</h2>
+					
+				<div class="login-box">
+						<h5> Selectionner la classe pour laquelle vous souhaiter renseigner les notes</h5>
+						<div class="depend">
+						<select id="select-class">
+                        <option>ELEQ1</option>
+                        <option>ELEQ2</option>
+						<option>ELEQ3</option>
+                        <option>ELEQ4</option>
+						</select>
+				    </div>
+					<button id="start">COMMENCER</button>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="footer">
+        Annee scolaire 2024-2025
+    </div>
+</body>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+    const commencerButton = document.getElementById("start");
+
+    commencerButton.addEventListener("click", function () {
+        checkLogin();
+    });
+
+    function checkLogin() {
+        var selectClass = document.getElementById("select-class").value;
+
+        switch (selectClass) {
+            case "ELEQ1":
+				// Store values in localStorage
+				localStorage.setItem("class", selectClass);
+                window.location.href = "FRONT-END-ELEQ1.html"; // Redirect to ELEQ1 page
+                break;
+            case "ELEQ2":
+				localStorage.setItem("class", selectClass);
+                window.location.href = "FRONT-END-ELEQ2.html"; // Redirect to ELEQ2 page
+                break;
+            case "ELEQ3":
+				localStorage.setItem("class", selectClass);
+                window.location.href = "FRONT-END-ELEQ3.html"; // Redirect to ELEQ3 page
+                break;
+            case "ELEQ4":
+				localStorage.setItem("class", selectClass);
+                window.location.href = "FRONT-END-ELEQ4.html"; // Redirect to ELEQ4 page
+                break;
+            default:
+                alert("Sélectionnez une classe valide !");
+        }
+    }
+});
+    
+</script>
+
+</html>

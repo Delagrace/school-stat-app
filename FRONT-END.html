@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #003366;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .header-left, .header-right {
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #cceeff;
+        }
+
+        .section {
+            width: 45%;
+            background-color: #66ccff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #003366;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #002244;
+        }
+
+        .grade-report {
+            padding: 20px;
+        }
+
+        .grade-report h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">CETIC D'ASSALA 1&2</div>
+            <div class="header-right">ELEQ4 Student Records Management</div>
+        </header>
+        <div class="main-content">
+            <div class="section" id="enter-grades">
+                <h2>Renseigner les notes</h2>
+                <div class="form-group">
+                    <label for="subject">Selectionner Matière</label>
+                    <select id="subject">
+                        <option>CIRCUIT ELECTRIQUE</option>
+                        <option>MESURES ET ESSAIS</option>
+                        <option>INST.ELEC.RESI.COMM</option>
+                        <option>ORIENTATION</option>
+                        <option>P.T.D</option>
+                        <option>TECHNOLOGIES DES EQUIPEMENTS</option>
+                        <option>QHSE</option>
+                        <option>MACHINE ELECTRIQUE</option>
+                        <option>SCHEMA.ELEC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="trimester">Selectionner Trimestre</label>
+                    <select id="trimester">
+                        <option>TRIM1</option>
+                        <option>TRIM2</option>
+                        <option>TRIM3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="evaluation">Evaluation Numero</label>
+                    <select id="evaluation">
+                        <option>EVAL</option>
+                        <option>COMP</option>
+                    </select>
+                </div>
+                <button id="enter-grade">COMMENCER</button>
+            </div>
+            <div class="section" id="consult-stats">
+                <h2>Consulter les statistiques</h2>
+                <div class="form-group">
+                    <label for="subject-stats">Par Matière</label>
+                    <select id="subject-stats">
+                        <option>CIRCUIT ELECTRIQUE</option>
+                        <option>MESURES ET ESSAIS</option>
+                        <option>INST.ELEC.RESI.COMM</option>
+                        <option>ORIENTATION</option>
+                        <option>P.T.D</option>
+                        <option>TECHNOLOGIES DES EQUIPEMENTS</option>
+                        <option>QHSE</option>
+                        <option>MACHINE ELECTRIQUE</option>
+                        <option>SCHEMA.ELEC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="trimester-stats">Selectionner Trimestre</label>
+                    <select id="trimester-stats">
+                        <option>TRIM1</option>
+                        <option>TRIM2</option>
+                        <option>TRIM3</option>
+                    </select>
+                </div>
+                <button id="stats-by-subject">COMMENCER</button>
+                <div class="form-group">
+                    <label for="trimester-all">Par trimestre</label>
+                    <select id="trimester-all">
+                        <option>TRIM1</option>
+                        <option>TRIM2</option>
+                        <option>TRIM3</option>
+                    </select>
+                </div>
+                 <button id="stats-by-trimester">COMMENCER</button>
+            </div>
+        </div>
+        <div class="grade-report">
+            <h2>Releve de notes</h2>
+            <table>
+                <thead>
+					<tr>
+					<th colspan=3 id="table-title"><center>TRIMESTRE/EVAL/MATIERE</center></th>
+					</tr>
+                    <tr>
+                        <th>Noms et Prenoms</th>
+                        <th>EVAL</th>
+                        <th>COMP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ADIGOUMA MBILI Pulchérie</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>AGOUME Georges Marcelin</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>ALONG NDEME Pascal Blaise</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>BABOA BABOA Bernard</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>BALONG Patrice Jean Marie</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+					<tr>
+					<td>BELI BOYOMO Annie Marceline</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>MATSA AMBASSA Emmanuel</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>NDJOH BOULOM Dénis Jodel</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<td>OLI BOYOMO Olivier</td>
+					<td></td>
+                    <td></td>
+					</tr>
+                </tbody>
+            </table>
+            <button id="valider">VALIDER</button>
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const commencerButton = document.getElementById("enter-grade");
+    const subjectSelect = document.getElementById("subject");
+    const trimesterSelect = document.getElementById("trimester");
+    const evaluationSelect = document.getElementById("evaluation");
+	
+	let selectedSubject=0;
+	let selectedTrimester=0;
+	let selectedEvaluation=0;
+	let name =[];
+	let evalNote = [];
+	let compNote = [];
+	let value1 = [];
+	let value2= [];
+	let i=0;
+	let j=0;
+	//fill the name array
+	let table = document.querySelector(".grade-report table tbody");
+    let rows = table.querySelectorAll("tr");
+	rows.forEach(row => {
+	name.push(row.cells[0].innerText.trim());})
+	
+    commencerButton.addEventListener("click", function () {
+        selectedSubject = subjectSelect.value;
+        selectedTrimester = trimesterSelect.value;
+        selectedEvaluation = evaluationSelect.value;
+
+        //if (selectedSubject === "CIRCUIT ELECTRIQUE" && selectedTrimester === "TRIM1" && selectedEvaluation === "EVAL") {
+            // Make "EVAL" column editable
+            let table = document.querySelector(".grade-report table tbody");
+            let rows = table.querySelectorAll("tr");
+			let hd = document.getElementById("table-title");
+			hd.textContent=selectedTrimester+"\t|\t"+selectedEvaluation+"\t|\t"+selectedSubject;
+			hd.style.marginLefteft="auto";
+			hd.style.marginRight="auto";
+			rows.forEach(row => {
+			row.cells[1].textContent = "";
+			row.cells[2].textContent = "";
+			while (evalNote.length>0){
+			evalNote.splice(0);
+			compNote.splice(0);
+			}
+			});
+			
+				
+		if (selectedEvaluation === "EVAL") {
+		rows.forEach(row => {
+        let evalCell = row.cells[1]; // The second column (EVAL)
+        evalCell.contentEditable = "true";
+        evalCell.style.backgroundColor = "#cffbbb"; // Highlight to show it's editable
+
+        evalCell.addEventListener("blur", function () {
+            let value1 = evalCell.innerText.trim();
+            // If empty, set to 0
+            if (value1 === "") {
+                value1 = "0";
+                evalCell.textContent = "0";
+            }
+
+            // Validate float between 0 and 20
+            if (isNaN(value1) || parseFloat(value1) < 0 || parseFloat(value1) > 20) { 
+                alert("Les notes doivent être des nombres entre 0 et 20.");
+                evalCell.textContent = "0"; // Reset invalid input to 0
+                value1 = 0;
+            } else {
+                value1 = parseFloat(value1);
+            }
+
+            let rowIndex = Array.from(rows).indexOf(row); // Get row index
+            evalNote[rowIndex] = value1; // Store in the correct position
+        });
+    });
+
+    alert("La colonne 'EVAL' est maintenant modifiable.");
+}
+
+if (selectedEvaluation === "COMP") {
+    rows.forEach(row => {
+        let compCell = row.cells[2]; // The third column (COMP)
+        compCell.contentEditable = "true";
+        compCell.style.backgroundColor = "#ffffcc"; // Highlight to show it's editable
+
+        compCell.addEventListener("blur", function () {
+            let value2 = compCell.innerText.trim();
+
+            // If empty, set to 0
+            if (value2 === "") {
+                value2 = "0";
+                compCell.textContent = "0";
+            }
+
+            // Validate float between 0 and 20
+            if (isNaN(value2) || parseFloat(value2) < 0 || parseFloat(value2) > 20) {
+                alert("Les notes doivent être des nombres entre 0 et 20.");
+                compCell.textContent = "0"; // Reset invalid input to 0
+                value2 = 0;
+            } else {
+                value2 = parseFloat(value2);
+            }
+
+            let rowIndex = Array.from(rows).indexOf(row); // Get row index
+            compNote[rowIndex] = value2; // Store in the correct position
+        });
+    });
+
+    alert("La colonne 'COMP' est maintenant modifiable.");
+}
+
+
+    });
+
+    // Add an event listener to save values when the "VALIDER" button is clicked
+    const validerButton = document.getElementById("valider");
+	validerButton.addEventListener("click", function () {
+	
+    let notes = [];
+	let table = document.querySelector(".grade-report table tbody");
+    let rows = table.querySelectorAll("tr");
+    rows.forEach((row, index) => {
+        let studentName = name[index]; // Get the correct name for the row
+        let studentEvalNote = evalNote[index] !== undefined ? evalNote[index] : null;
+        let studentCompNote = compNote[index] !== undefined ? compNote[index] : null;
+
+        notes.push({
+            name: studentName,
+            note1: studentEvalNote,
+            note2: studentCompNote
+        });
+    });
+
+    //console.log(notes); // Debugging: Check the structure of notes before sending
+
+    function encodeFormData(data) {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    }
+		//https://script.google.com/macros/s/AKfycbxhM8DN3Z9CWIqEtp9NU-5V-N0Gf-IzQzW-vj8A7DQHIRnCyvTAOEvfBAQPSLARbIIL/exec",// {//
+		//https://script.google.com/macros/s/AKfycbzYTPCjoixMAx0_gYmjUucnIrGqESoAU9HiHsObgP9UAk76g0iyi2XHqToIfJYnAu9P/exec", {//
+	//https://script.google.com/macros/s/AKfycbz26IUeU6Zi8WUAjtE-LOs_g-ydx9eAHzG0W8bbJChVqYr1Scy7xmBS4hjAkM-OkRyF/exec", {//
+	//https://script.google.com/macros/s/AKfycbzZ83vvYplQWODZxWKTKfo43h6dQndf0UILKOR1KStFBY83a8-yIFdWLVJ-qMIsBFk/exec", {//
+    fetch("https://script.google.com/macros/s/AKfycbw67_X4pozmmfU-Z9wBvzZZ0BbboNvZPmmyMB3rOlaG47gp2SzCMyoAOEZnPlGcdZfm/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: encodeFormData({
+            subject: selectedSubject,
+            trimester: selectedTrimester,
+            evaluation: selectedEvaluation,
+            grades: JSON.stringify(notes) // Convert array to JSON string before encoding
+        })
+    })
+    .then(response => response.json())  // Google Apps Script may return plain text
+    .then(data => {
+        console.log("Success:", data);
+        alert("Notes successfully submitted!");
+    })
+    .catch(error => console.error("Error:", error)); //alert("echec, pas d'interet ou contacter l'Admin");
+	});
+	
+	
+	const statSubjectSelect = document.getElementById("subject-stats");
+	const statTrimesterSelect = document.getElementById("trimester-stats");
+	const commencerStatBySubject = document.getElementById("stats-by-subject");
+
+commencerStatBySubject.addEventListener("click", function () {
+    const statsSelectedSubject = statSubjectSelect.value;
+    const statsSelectedTrimester = statTrimesterSelect.value;
+
+    // Store values in localStorage
+    localStorage.setItem("selectedSubject", statsSelectedSubject);
+    localStorage.setItem("selectedTrimester", statsSelectedTrimester);
+
+    // Navigate to stats page
+    window.location.href = "stats-by-subject.html";
+});
+
+});
+
+
+</script>
+</html>

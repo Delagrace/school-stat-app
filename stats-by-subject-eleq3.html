@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #003366;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .header-left, .header-right .header-down {
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #cceeff;
+        }
+
+        .section {
+            width: 45%;
+            background-color: #66ccff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #003366;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #002244;
+        }
+
+        .grade-report {
+            padding: 20px;
+        }
+
+        .grade-report h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">CETIC D'ASSALA 1&2</div>
+            <div class="header-right">ELEQ3 Student Records Management</div>
+			<div class="header-down">Consulter les statistiques</div>
+        </header>
+        <div class="grade-report">
+            <h2>Releve de notes</h2>
+            <table>
+                <thead>
+					<tr>
+					<th colspan=3 id="table-title"><center>TRIMESTRE/EVAL/MATIERE</center></th>
+					</tr>
+                    <tr>
+                        <th>Noms et Prenoms</th>
+                        <th>EVAL</th>
+                        <th>COMP</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTable">
+                    <tr>
+                        <td>ALIGUENE EBONG Mariano</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>AMANG BOHONO Phael</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>AMBASSA Adolphe Gabriel</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>ASSIENE Boniface</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>BALONG BEYEGUE Romuald</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+					<tr>
+					<td>BIDIAS NKONO Simon</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>BOGODO Louis Ernest</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>BOUYATSANG Franck Tsafkiel</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>BOYOMO GUESSELE Ferdinand</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr><td>DOUGUELI Jean Collins</td><td></td><td></td></tr>
+					<tr>
+					<td>EDOA Jean Baptiste</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>EGOUME BOUYANTSANG Michel T</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>ELEBE Eric Joël</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>EMEGUIDE Styve</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>GOGOLOGO LIME Félix Rayane</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>GUEHOUADA NKONO Augustin Fab</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>GUINTANG Jules Marius</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>KEMPENI BATSAGUINA Marie Noë</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>KENIGOULE BOUGONG Ferdinand</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>KENIMBENI Anasthasie</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>KENIMBENI Ketura Sara</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>KOFANE NDOGA Daniella Maquinsie</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>MOUBITANG Bienvenue Junior</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>MOUBITANG BASSAMA Kevin</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>MOUBITANG NOUGAMA Cyrille</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>MOUNKAMA Denis Parfait</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>MPONO Saint-Colonel</td>
+					<td></td>
+                    <td></td>
+					</tr>
+					<tr>
+					<td>NKONO SEGUE Yves Martial</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>NYAMA Barthelemy Junior</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>ONANINA ONANINA Jean Sylvain</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					<tr>
+					<td>SANAMA SANAMA Junior</td>
+					<td></td>
+                    <td></td>
+					</tr>	
+					</tr >
+					<td colspan=3 style="background-color: #003366; color: white;"><b><center>STATISTIQUES</b><center></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>MOYENNE GENERALE</b></td>
+					<td></td>
+					<td></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>MOYENNE GENERALE GARCONS</b></td>
+					<td></td>
+					<td></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>MOYENNE GENERALE FILLES</b></td>
+					<td></td>
+					<td></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>MOYENNE >=10</b></td>
+					<td></td>
+					<td></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>MOYENNE <10 </b></td>
+					<td></td>
+					<td></td>
+					</tr>
+					<tr>
+					<td style="background-color: #66ccff;"><b>TAUX DE REUSSITE</b></td>
+					<td></td>
+					<td></td>
+					</tr>
+                </tbody>
+            </table>
+            <button id="valider", onclick="printReport()">imprimer</button>
+			<script>
+			function printReport() {
+    let tableH = document.querySelector(".grade-report table thead").innerHTML;
+    let tableB = document.querySelector("#studentsTable").innerHTML; // Get tbody content
+
+    let printWindow = window.open('', '', 'height=500, width=700');
+    printWindow.document.open();
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>ELEQ3 RELEVE DE NOTE</title>
+            <style>
+				h2, h4 {
+				text-align: center;}
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    border: 1px solid black;
+                    padding: 5px;
+                    text-align: center;
+					
+                }
+                th {
+                    background-color: #f2f2f2;
+					}
+                
+				tbody {
+				font-size:9px;
+				}
+            </style>
+        </head>
+        <body>
+			<h4>ANNEE SCOLAIRE 2024-2025</h4>
+            <h2>ELEQ3 RELEVE DE NOTES</h2>
+			<table>
+				<thead>
+					<tr><th>Competences visées Trimestre</th></tr>
+				</thead>
+				<tbody>
+					<tr><td style="height:30px"></td></tr>
+				</tbody>
+			</table>
+            <table>
+                <thead>${tableH}</thead>
+				<tbody>${tableB}</tbody>
+            </table>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+	printWindow.print();
+}
+			</script>
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get URL parameters
+    const subject = localStorage.getItem("selectedSubject");
+	const trimester = localStorage.getItem("selectedTrimester");
+	const selectClass = localStorage.getItem("selectedClass");
+	let table = document.querySelector(".grade-report table tbody");
+            let rows = table.querySelectorAll("tr");
+			let hd = document.getElementById("table-title");
+			hd.textContent=trimester+"\t|\t"+ subject;
+
+	console.log(subject, trimester);
+	if (subject && trimester) {
+    fetchGoogleSheetData(subject, trimester);
+	} else {
+    console.error("Missing subject or trimester parameters.");
+	}
+
+	function fetchGoogleSheetData(subject, trimester) {
+    console.log(selectClass, subject, trimester);
+
+    function encodeFormData(data) {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    }
+//https://script.google.com/macros/s/AKfycbw1gYmp9KK_COh7DlENW0oSLO0-lPozacQzjrgrNQHWDtKpsBR0wIoIFb-OhnJ2pyNS/exec
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx-mVJEmg6OktLnQz-UIoK4cHBfBefhIPGU70kApqLuf93RHIg45yTZqYURBrv-eFapdA/exec";
+	const parameters = encodeFormData({
+		selectClass: selectClass,
+        subject: subject,
+        trimester: trimester
+    });
+	 
+	 
+    const urlWithParams = `${scriptURL}?${encodeFormData({
+		selectClass: selectClass,
+        subject: subject,
+        trimester: trimester
+    })}`;
+	console.log(urlWithParams);
+    async function fetchWithRetry(url, retries = 2, backoff = 3000) {
+        for (let i = 0; i < retries; i++) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                console.log("Data received:", data);
+                console.log(subject, trimester);
+                displayData(data);
+                return;
+            } catch (error) {
+                console.error(`Attempt ${i + 1} failed: ${error.message}`);
+                if (i < retries - 1) {
+                    await new Promise(resolve => setTimeout(resolve, backoff * Math.pow(2, i)));
+                } else {
+                    console.error("All attempts failed. Giving up.");
+                }
+            }
+        }
+    }
+
+    fetchWithRetry(urlWithParams);
+}
+
+
+	function displayData(data) {
+
+        let studentRows = document.querySelectorAll("#studentsTable tr");
+        
+        // Fill student scores
+        for (let i = 0; i < data.evalNote.length; i++) {
+            let evalCell = studentRows[i].children[1]; // EVAL column
+            let compCell = studentRows[i].children[2]; // COMP column
+            
+            evalCell.textContent = data.evalNote[i].eval;
+            compCell.textContent = data.evalNote[i].comp || "";
+        }
+
+        // Fill statistics
+        let statsStartIndex = data.evalNote.length + 1; // Skip the student rows + stats title row
+
+        let statsData = data.result;
+        for (let j = 0; j < statsData.length; j++) {
+            let evalCell = studentRows[statsStartIndex + j].children[1]; // EVAL column
+            let compCell = studentRows[statsStartIndex + j].children[2]; // COMP column
+            
+            evalCell.textContent = statsData[j].eval;
+            compCell.textContent = statsData[j].comp;
+        }
+	}
+});
+</script>
+</html>
